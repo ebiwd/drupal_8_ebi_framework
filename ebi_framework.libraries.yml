@@ -1,0 +1,28 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/ebi_framework.css: {}
+      css/app.css: {}
+  js:
+    js/ebi_framework.js: {}
+
+ebi_framework_cdn:
+  remote: https://github.com/ebiwd/EBI-Framework
+  version: 1.1
+  license:
+    name: Custom
+    remote: https://github.com/ebiwd/EBI-Framework
+    gpl-compatible: true
+  js:
+    //ebiwd.github.io/EBI-Framework/js/cookiebanner.js: { type: external, minified: false }
+    //ebiwd.github.io/EBI-Framework/js/foot.js: { type: external, minified: false }
+    //ebiwd.github.io/EBI-Framework/js/script.js: { type: external, minified: false }
+    //ebiwd.github.io/EBI-Framework/js/foundationExtendEBI.js: { type: external, minified: false }
+  css:
+    theme:
+      //ebiwd.github.io/EBI-Framework/ebi-global.css: { type: external, minified: false }
+      //ebiwd.github.io/EBI-Framework/fonts/fonts.css: { type: external, minified: false }
+      //ebiwd.github.io/EBI-Framework/css/embl-petrol-colours.css: { type: external, minified: false }
+  dependencies:
+    - core/jquery
