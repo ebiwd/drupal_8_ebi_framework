@@ -1,5 +1,8 @@
+NOTE: This theme is in early development and not complete or ready for use.
+
+
 EBI FRAMEWORK CHILD THEME FOR ZURB FOUNDATION
------------------------------=====-----------
+---------------------------------------------
 
 This integrate the EBI Framework into a Drupal sub-theme.
 
