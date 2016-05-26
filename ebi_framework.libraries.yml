@@ -21,7 +21,7 @@ ebi_framework_cdn:
     //ebiwd.github.io/EBI-Framework/js/foundationExtendEBI.js: { type: external, minified: false }
   css:
     theme:
-      //ebiwd.github.io/EBI-Framework/ebi-global.css: { type: external, minified: false }
+      //ebiwd.github.io/EBI-Framework/css/ebi-global.css: { type: external, minified: false }
       //ebiwd.github.io/EBI-Framework/fonts/fonts.css: { type: external, minified: false }
       //ebiwd.github.io/EBI-Framework/css/embl-petrol-colours.css: { type: external, minified: false }
   dependencies:
