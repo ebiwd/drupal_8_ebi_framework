@@ -1,0 +1,20 @@
+{
+  "name": "ebi/zurb_foundation",
+  "type": "drupal-theme",
+  "description": "An integration of the EBI Visual Framework for Drupal 8's Zurb Foundation theme.",
+  "keywords": ["Drupal, EMBL-EBI"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/ebiwd/drupal_8_ebi_framework",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Ken Hawkins (khawkins98)",
+      "homepage": "https://www.drupal.org/u/ken-hawkins",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/ebiwd/drupal_8_ebi_framework/issues/",
+    "source": "https://github.com/ebiwd/drupal_8_ebi_framework"
+  }
+}
