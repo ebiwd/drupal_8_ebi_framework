@@ -19,6 +19,7 @@ ebi_framework_cdn:
     //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/foot.js: { type: external, minified: false }
     //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/script.js: { type: external, minified: false }
     //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/foundationExtendEBI.js: { type: external, minified: false }
+    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/libraries/modernizr/modernizr.custom.49274.js: { type: external, minified: false }
   css:
     theme:
       //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/css/ebi-global.css: { type: external, minified: false }

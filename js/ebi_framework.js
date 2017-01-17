@@ -11,6 +11,7 @@
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
       //alert("I'm alive!");
+      $(document).foundationExtendEBI();
     }
   };
 
