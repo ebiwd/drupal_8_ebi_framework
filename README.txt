@@ -35,6 +35,8 @@ and
 
 Note that this theme's composer.json will require the Drupal Foundation base theme.
 
+You can find more guidance on using Git with Composer at https://getcomposer.org/doc/05-repositories.md#vcs
+
 
 Developing further with the subtheme
 ------------------------------------
