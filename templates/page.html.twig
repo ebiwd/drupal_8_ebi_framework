@@ -111,6 +111,12 @@
 
             <h2 id="site-name"><a href="[service-url]" title="Back to {{site_name}} homepage">{{ linked_site_name }}</a></h2>
           {% endif %}
+          {% if site_slogan %}
+            <div class="columns hide-for-small">
+              {{ site_slogan }}
+            </div>
+          {% endif %}
+
         </div>
         <!-- /local-title -->
 
@@ -120,6 +126,15 @@
             {% endif %}
             <nav class="float-right">
               <ul class="menu dropdown float-right" data-dropdown-menu data-description="functional">
+                {% if show_account_info %}
+                  {% if logged_in %}
+                    <li><a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a></li>
+                    <li><a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a></li>
+                  {% else %}
+                    <li><a href="{{ path('user.login') }}">{{ 'Login'|t }}</a></li>
+                    <li><a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a></li>
+                  {% endif %}
+                {% endif %}
                 <li class="functional"><a href="#"><i class="icon icon-generic" data-icon="d"></i> Share this</a>
                   <ul class="menu js">
                     <li><a href="#">Item 1A Loooong</a></li>
@@ -158,160 +173,105 @@
 </div>
 
 
-<div class="off-canvas-wrapper">
-  <div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
-    <aside id="left-off-canvas-menu" class="off-canvas left-off-canvas-menu position-left" role="complementary" data-off-canvas>
-      {{ page.left_off_canvas }}
-    </aside>
-
-    <aside id="right-off-canvas-menu" class="off-canvas right-off-canvas-menu position-right" role="complementary" data-off-canvas>
-      {{ page.right_off_canvas }}
-    </aside>
-
-    <div class="off-canvas-content" data-off-canvas-content>
-      {% if page.meta_header %}
-        {% if meta_header_grid %}
-          <div class="row">
-            <div class="large-12 columns">
-        {% endif %}
-        {{ page.meta_header }}
-        {% if meta_header_grid %}
-            </div>
-          </div>
-        {% endif %}
-      {% endif %}
-
-      {% if page.header %}
-        <div class="row">
-          <div class="large-12 columns">
-            {{ page.header }}
-          </div>
-        </div>
-      {% endif %}
-
-      <div class="row">
-        {% if show_account_info %}
-          <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
-            <p>
-              {% if logged_in %}
-                <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a>
-                <a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a>
-              {% else %}
-                <a href="{{ path('user.login') }}">{{ 'Login'|t }}</a>
-                <a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a>
-              {% endif %}
-            </p>
-          </div>
-        {% endif %}
-        {% if site_slogan %}
-          <div class="large-6 columns hide-for-small">
-            {{ site_slogan }}
-          </div>
-        {% endif %}
-        {% if show_account_info %}
-          <div class="show-for-small">
-            <div class="six mobile-two columns">
-              <p>
-                <a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
-              </p>
-            </div>
-            <div class="six mobile-two columns">
-              <p>
-                <a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
-              </p>
-            </div>
-          </div>
-        {% endif %}
-      </div>
-
-      {% if messages and not zurb_foundation_messages_modal %}
-      <div class="l-messages row">
-        <div class="large-12 columns">
-          {{ messages }}
-        </div>
-      </div>
-      {% endif %}
-
-      {% if page.help %}
-      <div class="l-help row">
-        <div class="large-12 columns">
-          {{ page.help }}
-        </div>
-      </div>
-      {% endif %}
-
-      <div class="row">
-        <main id="main" class="{{ main_grid }} columns" role="main">
-          {% if page.highlighted %}
-            {% spaceless %}
-              {{ page.highlighted }}
-            {% endspaceless %}
-          {% endif %}
-          <a id="main-content"></a>
-          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-          <section>
-            {{ page.content }}
-          </section>
-        </main>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
-        {% endif %}
-        {% if page.sidebar_second %}
-          <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
-            {{ page.sidebar_second }}
-          </div>
-        {% endif %}
-      </div>
-      <footer>
-        <!-- Optional local footer (insert citation / project-specific copyright / etc here -->
-        <div id="local-footer">
-          <div class="row">
-            {% if page.footer_first or page.footer_middle or page.footer_last %}
-              <div class="row">
-                {% if page.footer_first %}
-                  <div id="footer-first" class="large-4 columns">
-                    {{ page.footer_first }}
-                  </div>
-                {% endif %}
-                {% if page.footer_middle %}
-                  <div id="footer-middle" class="large-4 columns">
-                    {{ page.footer_middle }}
-                  </div>
-                {% endif %}
-                {% if page.footer_last %}
-                  <div id="footer-last" class="large-4 columns">
-                    {{ page.footer_last }}
-                  </div>
-                {% endif %}
-                </div>
-            {% endif %}
-            <!-- <span class="reference">How to reference this page: ...</span> -->
-          </div>
-        </div>
-        <!-- End optional local footer -->
-
-        <div id="global-footer">
-
-          <nav id="global-nav-expanded" class="row">
-            <!-- Footer will be automatically inserted by footer.js -->
-          </nav>
-
-          <section id="ebi-footer-meta" class="row">
-            <!-- Footer meta will be automatically inserted by footer.js -->
-          </section>
-
-        </div>
-      </footer>
-
-      <div class="bottom-bar panel">
-        <div class="row">
-          <div class="large-12 columns">
-          &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
-          </div>
-        </div>
+{% if page.meta_header %}
+  {% if meta_header_grid %}
+    <div class="row">
+      <div class="large-12 columns">
+  {% endif %}
+  {{ page.meta_header }}
+  {% if meta_header_grid %}
       </div>
     </div>
+  {% endif %}
+{% endif %}
+
+{% if page.header %}
+  <div class="row">
+    <div class="large-12 columns">
+      {{ page.header }}
+    </div>
+  </div>
+{% endif %}
+
+
+{% if messages and not zurb_foundation_messages_modal %}
+<div class="l-messages row">
+  <div class="large-12 columns">
+    {{ messages }}
   </div>
 </div>
+{% endif %}
+
+{% if page.help %}
+<div class="l-help row">
+  <div class="large-12 columns">
+    {{ page.help }}
+  </div>
+</div>
+{% endif %}
+
+<div class="row">
+  <main id="main" class="{{ main_grid }} columns" role="main">
+    {% if page.highlighted %}
+      {% spaceless %}
+        {{ page.highlighted }}
+      {% endspaceless %}
+    {% endif %}
+    <a id="main-content"></a>
+    {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+    <section>
+      {{ page.content }}
+    </section>
+  </main>
+  {% if page.sidebar_first %}
+    <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+      {{ page.sidebar_first }}
+    </div>
+  {% endif %}
+  {% if page.sidebar_second %}
+    <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+      {{ page.sidebar_second }}
+    </div>
+  {% endif %}
+</div>
+<footer>
+  <!-- Optional local footer (insert citation / project-specific copyright / etc here -->
+  <div id="local-footer">
+    <div class="row">
+      {% if page.footer_first or page.footer_middle or page.footer_last %}
+        <div class="row">
+          {% if page.footer_first %}
+            <div id="footer-first" class="large-4 columns">
+              {{ page.footer_first }}
+            </div>
+          {% endif %}
+          {% if page.footer_middle %}
+            <div id="footer-middle" class="large-4 columns">
+              {{ page.footer_middle }}
+            </div>
+          {% endif %}
+          {% if page.footer_last %}
+            <div id="footer-last" class="large-4 columns">
+              {{ page.footer_last }}
+            </div>
+          {% endif %}
+          </div>
+      {% endif %}
+      <!-- <span class="reference">How to reference this page: ...</span> -->
+    </div>
+  </div>
+  <!-- End optional local footer -->
+
+  <div id="global-footer">
+
+    <nav id="global-nav-expanded" class="row">
+      <!-- Footer will be automatically inserted by footer.js -->
+    </nav>
+
+    <section id="ebi-footer-meta" class="row">
+      <!-- Footer meta will be automatically inserted by footer.js -->
+    </section>
+
+  </div>
+</footer>
+
