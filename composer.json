@@ -1,5 +1,5 @@
 {
-  "name": "ebi/zurb_foundation",
+  "name": "ebiwd/drupal_8_ebi_framework",
   "type": "drupal-theme",
   "description": "An integration of the EBI Visual Framework for Drupal 8's Zurb Foundation theme.",
   "keywords": ["Drupal, EMBL-EBI"],
