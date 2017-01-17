@@ -115,12 +115,10 @@
         <!-- /local-title -->
 
         <!-- local-nav -->
-            <nav >
-              <ul class="dropdown menu float-left" data-description="navigational" data-dropdown-menu>
-                <li class="active"><a href="documentation.html">Overview</a></li>
-                <li><a data-open="modal-download">Download</a></li>
-                <li><a href="#">Support <i class="icon icon-generic" data-icon="x"></i></a></li>
-              </ul>
+            {% if page.header %}
+              {{ page.header }}
+            {% endif %}
+            <nav class="float-right">
               <ul class="menu dropdown float-right" data-dropdown-menu data-description="functional">
                 <li class="functional"><a href="#"><i class="icon icon-generic" data-icon="d"></i> Share this</a>
                   <ul class="menu js">
