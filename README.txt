@@ -13,6 +13,28 @@ Installing this theme
 -  Add this theme your Drupal 8 /themes directory.
 -  Add the zurb_foundation Drupal 8 theme to the /themes directory.
    Ensure you use the 8.x-6.x variant.
+   
+Installing with composer.json
+-----------------------------
+
+If you wish to install with your Drupal site's composer.json file, add these two chunks of code to the indicated areas of composer.json
+```
+    "require": {
+        "ebiwd/drupal_8_ebi_framework": "dev-8.x-1.1"
+    },
+```
+and
+```
+    "repositories": {
+        "ebiwd": {
+            "type": "vcs",
+            "url": "https://github.com/ebiwd/drupal_8_ebi_framework"
+        }
+    }
+```
+
+Note that this theme's composer.json will require the Drupal Foundation base theme.
+
 
 Developing further with the subtheme
 ------------------------------------
