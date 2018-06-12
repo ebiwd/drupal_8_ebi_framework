@@ -39,7 +39,7 @@
 //  34. Tooltip
 //  35. Top Bar
 
-@import 'util/util';
+// @import 'util/util';
 
 // 1. Global
 // ---------
@@ -547,3 +547,7 @@ $topbar-background: $light-gray;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 
+
+// 36. EBI Framework
+// -----------
+$HeaderTransparentBackground: rgba(0, 0, 0, 0.43);

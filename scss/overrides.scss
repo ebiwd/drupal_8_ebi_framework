@@ -1,0 +1,23 @@
+#masthead {
+  ul.menu.dropdown ul.menu {
+    display: block;
+  }
+
+  .dropdown.menu > li.opens-right > .is-dropdown-submenu {
+    margin: 0;
+
+    li {
+      width: 100%;
+    }
+  }
+
+  &.background-image-header {
+    .masthead-inner {
+      background-color: $HeaderTransparentBackground;
+    }
+  }
+}
+
+main#main {
+  padding: 25px 10px;
+}

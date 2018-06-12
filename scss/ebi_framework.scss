@@ -26,20 +26,20 @@
 // Make sure the charset is set appropriately
 @charset 'utf-8';
 
-//This is your _settings.scss file where you can override foundation variables. 
-@import 'settings';
+//This is your _settings.scss file where you can override foundation variables.
+@import './settings';
 
 // Core
 // The following imports bootstrap the theme.
-@import 'foundation';
-@import 'motion-ui';
+// @import 'foundation';
+// @import 'motion-ui';
 
 // Set flex to true to enable the new Foundation 6 flex grid.
 $flex: false;
-@include foundation-everything($flex);
+// @include foundation-everything($flex);
 
-@include motion-ui-transitions;
-@include motion-ui-animations;
+// @include motion-ui-transitions;
+// @include motion-ui-animations;
 
 
 // Components
@@ -81,3 +81,6 @@ $flex: false;
 
 // Older IE support
 // @import "vendor/ie";
+
+// Import Overrides.
+@import "overrides";
