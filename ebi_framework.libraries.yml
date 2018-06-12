@@ -9,21 +9,18 @@ global:
 
 ebi_framework_cdn:
   remote: https://www.ebi.ac.uk/web_guidelines/EBI-Framework/
-  version: 1.1
+  version: 1.3
   license:
     name: Custom
     remote: https://www.ebi.ac.uk/web_guidelines/EBI-Framework/
     gpl-compatible: true
   js:
-    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/cookiebanner.js: { type: external, minified: false }
-    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/foot.js: { type: external, minified: false }
-    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/script.js: { type: external, minified: false }
-    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/js/foundationExtendEBI.js: { type: external, minified: false }
-    //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/libraries/modernizr/modernizr.custom.49274.js: { type: external, minified: false }
+    //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/libraries/foundation-6/js/foundation.js: { type: external, minified: false }
+    //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/foundationExtendEBI.js: { type: external, minified: false }
+    //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/script.js: { type: external, minified: false }
   css:
     theme:
-      //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/css/ebi-global.css: { type: external, minified: false }
-      //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.1/css/theme-embl-petrol.css: { type: external, minified: false }
-      //www.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.1/fonts.css: { type: external, minified: false }
+      //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/ebi-global.css: { type: external, minified: false }
+      //ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.3/fonts.css: { type: external, minified: false }
   dependencies:
     - core/jquery

@@ -1,0 +1,55 @@
+<div id="masthead" class="background-image-header masthead sticky is-anchored is-at-top" style="background: url('{{ header_background_images[0] }}') no-repeat center; background-size: 100% auto;">
+    <div class="masthead-inner">
+      <div class="row">
+        <!-- local-title -->
+        <div class="columns medium-7" id="local-title">
+            {% if page.header_branding %}
+                <h1 class="main-brand region-header-branding">
+                    {{ page.header_branding }}
+                </h1>
+            {% endif %}
+        </div>
+        <!-- /local-title -->
+        <div class="column medium-5">
+            {% if page.header %}
+                <div class="region-header">
+                    {{ page.header }}
+                </div>
+            {% endif %}
+        </div>
+        <!-- local-nav -->
+        <nav>
+            {% if page.main_menu %}
+                {{ page.main_menu }}
+            {% endif %}
+
+            {% if show_account_info %}
+                <ul class="dropdown menu float-right" data-description="tasks">
+                    {% if logged_in %}
+                        <li>
+                            <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user.logout') }}">
+                                <span class="icon icon-common" data-icon="&#x2f5;"></span>
+                                {{ 'Logout'|t }}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('user.login') }}">
+                                <span class="icon icon-common" data-icon="&#x2f5;"></span>
+                                {{ 'Login'|t }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+
+        </nav>
+        <!-- /local-nav -->
+        </div>
+    </div>
+</div>
+

@@ -1,4 +1,5 @@
 <?php
+use Drupal\image\Entity\ImageStyle;
 
 // Add your custom theme override functions here.
 
@@ -36,6 +37,30 @@ function ebi_framework_preprocess_node(&$variables) {
  * Add convenience variables and template suggestions
  */
 function ebi_framework_preprocess_page(&$variables) {
+   // Add classes to highlighted region.
+   if (!empty($variables['page']['highlighted'])) {
+    $variables['page']['highlighted']['#attributes']['class'] = ['region-highlighted'];
+  }
+
+  // Pass EBI Theme settings variables.
+  $variables['enable_copyright_footer'] = theme_get_setting('enable_copyright_footer');
+  $variables['enable_ebi_footer'] = theme_get_setting('enable_ebi_footer');
+  $variables['enable_header_bar'] = theme_get_setting('enable_header_bar');
+  $variables['header_background_color'] = theme_get_setting('header_background_color');
+  $variables['header_type'] = theme_get_setting('header_type');
+
+  $header_background_images = [];
+  $header_background_images = theme_get_setting('header_background_images');
+
+  if (!empty($header_background_images)) {
+    $header_background_images_files =	file_load_multiple($header_background_images);
+    $header_background_images = [];
+    foreach($header_background_images_files as $header_background_images_file) {
+      $image_url = ImageStyle::load('header_background_1350x380')->buildUrl($header_background_images_file->getFileUri());
+      $header_background_images[] = $image_url;
+    }
+    $variables['header_background_images'] = $header_background_images;
+  }
 }
 
 /**

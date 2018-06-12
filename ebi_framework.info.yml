@@ -18,6 +18,8 @@ libraries:
 regions:
   meta_header: 'Meta Header'
   header: Header
+  header_branding: Header Branding
+  main_menu: Main Menu
   help: Help
   page_top: 'Page top'
   page_bottom: 'Page bottom'

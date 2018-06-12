@@ -40,6 +40,8 @@
  * Regions:
  * - page.meta_header
  * - page.header
+ * - page.header_branding
+ * - page.main_menu
  * - page.help
  * - page.highlighted
  * - page.content
@@ -55,223 +57,189 @@
  */
 #}
 
-<div data-sticky-container>
-  <div id="local-masthead" data-sticky data-sticky-on="large" data-top-anchor="180" data-btm-anchor="300000">
-    <header role="banner" aria-label="{{ 'Site header'|t }}">
+<div class="off-canvas-wrap" data-offcanvas="data-offcanvas">
+    <div class="inner-wrap">
+        <aside class="left-off-canvas-menu" role="complementary">
+            {{ page.left_off_canvas }}
+        </aside>
 
-      <div id="global-masthead" class="clearfix">
-        <!--This has to be one line and no newline characters-->
-        <a href="//www.ebi.ac.uk/" title="Go to the EMBL-EBI homepage"><span class="ebi-logo"></span></a>
+        <aside class="right-off-canvas-menu" role="complementary">
+            {{ page.right_off_canvas }}
+        </aside>
 
-        <nav>
-          <div class="row">
-            <ul id="global-nav" class="menu">
-              <!-- set active class as appropriate -->
-              <li id="home-mobile" class=""><a href="//www.ebi.ac.uk"></a></li>
-              <li id="home" class="active"><a href="//www.ebi.ac.uk"><i class="icon icon-generic" data-icon="H"></i> EMBL-EBI</a></li>
-              <li id="services"><a href="//www.ebi.ac.uk/services"><i class="icon icon-generic" data-icon="("></i> Services</a></li>
-              <li id="research"><a href="//www.ebi.ac.uk/research"><i class="icon icon-generic" data-icon=")"></i> Research</a></li>
-              <li id="training"><a href="//www.ebi.ac.uk/training"><i class="icon icon-generic" data-icon="t"></i> Training</a></li>
-              <li id="about"><a href="//www.ebi.ac.uk/about"><i class="icon icon-generic" data-icon="i"></i> About us</a></li>
-              <li id="search">
-                <a href="#" data-toggle="search-global-dropdown"><i class="icon icon-functional" data-icon="1"></i> <span class="show-for-small-only">Search</span></a>
-                <div id="search-global-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
-                  <form id="global-search" name="global-search" action="/ebisearch/search.ebi" method="GET">
-                    <fieldset>
-                      <div class="input-group">
-                        <input type="text" name="query" id="global-searchbox" class="input-group-field" placeholder="Search all of EMBL-EBI">
-                        <div class="input-group-button">
-                          <input type="submit" name="submit" value="Search" class="button">
-                          <input type="hidden" name="db" value="allebi" checked="checked">
-                          <input type="hidden" name="requestFrom" value="global-masthead" checked="checked">
-                        </div>
-                      </div>
-                    </fieldset>
-                  </form>
+        {% if page.meta_header %}
+            {% if meta_header_grid %}
+                <div class="row">
+                    <div class="large-12 columns">
+                    {% endif %}
+                    {{ page.meta_header }}
+                    {% if meta_header_grid %}
+                    </div>
                 </div>
-              </li>
-              <li class="float-right show-for-medium embl-selector">
-                <button class="button float-right" type="button" data-toggle="embl-dropdown">Hinxton</button>
-                <!-- The dropdown menu will be programatically added by script.js -->
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-      </div>
-
-      <div class="masthead row">
-
-        <!-- local-title -->
-        <div class="columns medium-7" id="local-title">
-          {% if linked_site_name or linked_logo %}
-            {% if linked_logo %}
-              {{ linked_logo }}
             {% endif %}
+        {% endif %}
 
-            <h1 id="site-name"><a href="[service-url]" title="Back to {{site_name}} homepage">{{ linked_site_name }}</a></h1>
-          {% endif %}
-          {% if site_slogan %}
-            <div class="columns hide-for-small">
-              {{ site_slogan }}
-            </div>
-          {% endif %}
-
-        </div>
-        <!-- /local-title -->
-
-        <!-- local-nav -->
-            {% if page.header %}
-              {{ page.header }}
+        <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
+            {% if linked_site_name or linked_logo %}
+                <div class="large-2 columns">
+                    {% if linked_logo %}
+                        {{ linked_logo }}
+                    {% endif %}
+                </div>
+                <div class="left large-4 columns">
+                    {% if is_front %}
+                        <h1 id="site-name">{{ linked_site_name }}</h1>
+                    {% else %}
+                        <div id="site-name">{{ linked_site_name }}</div>
+                    {% endif %}
+                </div>
             {% endif %}
-            <nav class="float-right">
-              <ul class="menu dropdown float-right" data-dropdown-menu data-description="functional">
-                {% if show_account_info %}
-                  {% if logged_in %}
-                    <li><a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a></li>
-                    <li><a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a></li>
-                  {% else %}
-                    <li><a href="{{ path('user.login') }}">{{ 'Login'|t }}</a></li>
-                    <li><a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a></li>
-                  {% endif %}
-                {% endif %}
-                <li class="functional"><a href="#"><i class="icon icon-generic" data-icon="d"></i> Share this</a>
-                  <ul class="menu js">
-                    <li><a href="#">Item 1A Loooong</a></li>
-                    <li>
-                      <a href='#'> Item 1 sub</a>
-                      <ul class='menu'>
-                        <li><a href='#'>Item 1 subA</a></li>
-                        <li><a href='#'>Item 1 subB</a></li>
-                        <li>
-                          <a href='#'> Item 1 sub</a>
-                          <ul class='menu'>
-                            <li><a href='#'>Item 1 subA</a></li>
-                            <li><a href='#'>Item 1 subB</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href='#'> Item 1 sub</a>
-                          <ul class='menu'>
-                            <li><a href='#'>Item 1 subA</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Item 1B</a></li>
+        </header>
+
+        {% if enable_header_bar %}
+          <header id="masthead-black-bar" class="clearfix masthead-black-bar">
+              <nav class="row">
+                  <ul id="global-nav" class="menu float-left">
+                      <!-- set active class as appropriate -->
+                      <li class="home-mobile">
+                          <a href="//www.ebi.ac.uk"></a>
+                      </li>
+                      <li class="home active">
+                          <a href="//www.ebi.ac.uk"></a>
+                      </li>
+                      <li class="services">
+                          <a href="//www.ebi.ac.uk/services">Services</a>
+                      </li>
+                      <li class="research">
+                          <a href="//www.ebi.ac.uk/research">Research</a>
+                      </li>
+                      <li class="training">
+                          <a href="//www.ebi.ac.uk/training">Training</a>
+                      </li>
+                      <li class="about">
+                          <a href="//www.ebi.ac.uk/about">About us</a>
+                      </li>
+                      <li class="float-right show-for-medium embl-selector">
+                          <button class="button float-right" type="button" data-toggle="embl-dropdown" aria-controls="embl-dropdown" data-is-focus="false" data-yeti-box="embl-dropdown" aria-haspopup="true" aria-expanded="false">Hinxton</button>
+                          <!-- The dropdown menu will be programatically added by script.js -->
+                      </li>
                   </ul>
+              </nav>
+          </header>
+        {% endif %}
 
-              </ul>
-            </nav>
-        <!-- /local-nav -->
+        {% if header_type == "simple" %}
+          {% include '@ebi_framework/header/header-simple.html.twig' %}
+        {% else %}
+          {% include '@ebi_framework/header/header-image.html.twig' %}
+        {% endif %}
 
-      </div>
-
-    </header>
-
-  </div>
-</div>
-
-
-{% if page.meta_header %}
-  {% if meta_header_grid %}
-    <div class="row">
-      <div class="large-12 columns">
-  {% endif %}
-  {{ page.meta_header }}
-  {% if meta_header_grid %}
-      </div>
-    </div>
-  {% endif %}
-{% endif %}
-
-{% if page.header %}
-  <div class="row">
-    <div class="large-12 columns">
-      {{ page.header }}
-    </div>
-  </div>
-{% endif %}
-
-
-{% if messages and not zurb_foundation_messages_modal %}
-<div class="l-messages row">
-  <div class="large-12 columns">
-    {{ messages }}
-  </div>
-</div>
-{% endif %}
-
-{% if page.help %}
-<div class="l-help row">
-  <div class="large-12 columns">
-    {{ page.help }}
-  </div>
-</div>
-{% endif %}
-
-<div class="row">
-  <main id="main" class="{{ main_grid }} columns" role="main">
-    {% if page.highlighted %}
-      {% spaceless %}
-        {{ page.highlighted }}
-      {% endspaceless %}
-    {% endif %}
-    <a id="main-content"></a>
-    {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-    <section>
-      {{ page.content }}
-    </section>
-  </main>
-  {% if page.sidebar_first %}
-    <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-      {{ page.sidebar_first }}
-    </div>
-  {% endif %}
-  {% if page.sidebar_second %}
-    <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
-      {{ page.sidebar_second }}
-    </div>
-  {% endif %}
-</div>
-<footer>
-  <!-- Optional local footer (insert citation / project-specific copyright / etc here -->
-  <div id="local-footer">
-    <div class="row">
-      {% if page.footer_first or page.footer_middle or page.footer_last %}
         <div class="row">
-          {% if page.footer_first %}
-            <div id="footer-first" class="large-4 columns">
-              {{ page.footer_first }}
+            {% if site_slogan %}
+                <div class="large-6 columns hide-for-small">
+                    {{ site_slogan }}
+                </div>
+            {% endif %}
+            {% if show_account_info %}
+                <div class="show-for-small">
+                    <div class="six mobile-two columns">
+                        <p>
+                            <a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
+                        </p>
+                    </div>
+                    <div class="six mobile-two columns">
+                        <p>
+                            <a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if messages and not zurb_foundation_messages_modal %}
+            <div class="l-messages row">
+                <div class="large-12 columns">
+                    {{ messages }}
+                </div>
             </div>
-          {% endif %}
-          {% if page.footer_middle %}
-            <div id="footer-middle" class="large-4 columns">
-              {{ page.footer_middle }}
+        {% endif %}
+
+        {% if page.help %}
+            <div class="l-help row">
+                <div class="large-12 columns">
+                    {{ page.help }}
+                </div>
             </div>
-          {% endif %}
-          {% if page.footer_last %}
-            <div id="footer-last" class="large-4 columns">
-              {{ page.footer_last }}
-            </div>
-          {% endif %}
-          </div>
-      {% endif %}
-      <!-- <span class="reference">How to reference this page: ...</span> -->
+        {% endif %}
+
+        <div class="row">
+            <main id="main" class="{{ main_grid }} columns" role="main">
+                {% if page.highlighted %}
+                    {% spaceless %}
+                        {{ page.highlighted }}
+                    {% endspaceless %}
+                {% endif %}
+                <a id="main-content"></a>
+                {% if breadcrumb %}
+                    {{ breadcrumb }}
+                {% endif %}
+                <section>
+                    {{ page.content }}
+                </section>
+            </main>
+            {% if page.sidebar_first %}
+                <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+                    {{ page.sidebar_first }}
+                </div>
+            {% endif %}
+            {% if page.sidebar_second %}
+                <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+                    {{ page.sidebar_second }}
+                </div>
+            {% endif %}
+        </div>
+        {% if page.footer_first or page.footer_middle or page.footer_last %}
+            <footer class="row">
+                {% if page.footer_first %}
+                    <div id="footer-first" class="large-4 columns">
+                        {{ page.footer_first }}
+                    </div>
+                {% endif %}
+                {% if page.footer_middle %}
+                    <div id="footer-middle" class="large-4 columns">
+                        {{ page.footer_middle }}
+                    </div>
+                {% endif %}
+                {% if page.footer_last %}
+                    <div id="footer-last" class="large-4 columns">
+                        {{ page.footer_last }}
+                    </div>
+                {% endif %}
+            </footer>
+        {% endif %}
+
+        <a class="exit-off-canvas"></a>
+
+        {% if enable_ebi_footer %}
+            <footer>
+                <div id="global-footer" class="global-footer">
+                    <nav id="global-nav-expanded" class="row">
+                        <!-- Footer will be automatically inserted by footer.js -->
+                    </nav>
+
+                    {% if enable_copyright_footer %}
+                        <div class="bottom-bar panel">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    &copy;
+                                    {{ "now"|date('Y') }}
+                                    {{ 'All rights reserved.'|t }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </footer>
+        {% endif %}
     </div>
-  </div>
-  <!-- End optional local footer -->
-
-  <div id="global-footer">
-
-    <nav id="global-nav-expanded" class="row">
-      <!-- Footer will be automatically inserted by footer.js -->
-    </nav>
-
-    <section id="ebi-footer-meta" class="row">
-      <!-- Footer meta will be automatically inserted by footer.js -->
-    </section>
-
-  </div>
-</footer>
-
+</div>

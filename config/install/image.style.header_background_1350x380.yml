@@ -1,0 +1,14 @@
+uuid: cc50debd-81ac-49f6-a683-7c089d2f2c9e
+langcode: en
+status: true
+dependencies: {  }
+name: header_background_1350x380
+label: 'Header Background 1350x380'
+effects:
+  e257cfe0-2e83-4dc0-a644-83d9e68d4615:
+    uuid: e257cfe0-2e83-4dc0-a644-83d9e68d4615
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1350
+      height: 380
