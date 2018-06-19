@@ -8,7 +8,7 @@
   /**
    * Use this behavior as a template for custom Javascript.
    */
-  Drupal.behaviors.exampleBehavior = {
+  Drupal.behaviors.ebiFoundation = {
     attach: function (context, settings) {
       //alert("I'm alive!");
       $(document).foundationExtendEBI();

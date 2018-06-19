@@ -13,6 +13,11 @@ libraries:
  - ebi_framework/global
  - ebi_framework/ebi_framework_cdn
 
+libraries-override:
+  zurb_foundation/global:
+    js:
+      js/foundation.min.js: false
+
 # Regions are output in the page.html.twig
 
 regions:
