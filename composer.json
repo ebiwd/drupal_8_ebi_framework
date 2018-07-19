@@ -7,8 +7,14 @@
   "homepage": "https://github.com/ebiwd/drupal_8_ebi_framework",
   "minimum-stability": "dev",
   "require": {
-      "drupal/zurb_foundation": "~6.x-dev"
+      "drupal/zurb_foundation": "6.x-dev"
   },
+  "repositories": [
+      {
+          "type": "composer",
+          "url": "https://packages.drupal.org/8"
+      }
+  ],
   "authors": [
     {
       "name": "Ken Hawkins (khawkins98)",
