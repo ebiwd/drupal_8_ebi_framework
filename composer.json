@@ -7,7 +7,7 @@
   "homepage": "https://github.com/ebiwd/drupal_8_ebi_framework",
   "minimum-stability": "dev",
   "require": {
-      "drupal/zurb_foundation": "~6.0"
+      "drupal/zurb_foundation": "~6.x-dev"
   },
   "authors": [
     {
