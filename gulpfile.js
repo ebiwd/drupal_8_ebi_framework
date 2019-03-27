@@ -18,6 +18,25 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('default', ['sass'], function() {
-  gulp.watch(['scss/**/*.scss'], ['sass']);
+// Run drush to clear the theme registry
+gulp.task('drush', function() {
+  return gulp.src('', {
+      read: false
+    })
+    .pipe($.shell([
+      'drush cr -y',
+    ]))
+    .pipe($.notify({
+      title: "Caches cleared",
+      message: "Drupal caches cleared.",
+      onLast: true
+    }));
+});
+
+gulp.task('default', ['sass', 'drush'], function() {
+  gulp.watch(['scss/**/*.scss'], ['sass', 'drush']);
+  gulp.watch("templates/*.twig", ['drush']);
+  gulp.watch("**/*.yml", ['drush']);
+  gulp.watch("**/*.theme", ['drush']);
+  gulp.watch("src/*.php", ['drush']);
 });

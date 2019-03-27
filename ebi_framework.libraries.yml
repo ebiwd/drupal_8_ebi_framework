@@ -20,7 +20,7 @@ ebi_framework_cdn:
     //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/script.js: { type: external, minified: false }
   css:
     theme:
-      //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/ebi-global.css: { type: external, minified: false }
+      //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/ebi-global.min.css: { type: external, minified: false }
       //ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.3/fonts.css: { type: external, minified: false }
   dependencies:
     - core/jquery
