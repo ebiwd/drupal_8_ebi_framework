@@ -1,1 +1,24 @@
 // Non-modular or client styles for .l-header region.
+
+.region-header-branding {
+  font-size: 1rem;
+
+  .site-logo-wrapper,
+  .site-name-slogan-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+
+    &.site-name-slogan-wrapper  {
+      padding: 15px 0 0 15px;
+    }
+  }
+
+  a.site-name h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  a.site-logo {
+    display: block;
+  }
+}

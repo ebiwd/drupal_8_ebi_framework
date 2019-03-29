@@ -22,6 +22,24 @@
  * - https://drupal.org/node/1887922
  * - http://smacss.com/
  */
+section[id*='-local-tasks'] div.button-group li {
+  display: inline-block; }
+
+.region-header-branding {
+  font-size: 1rem; }
+  .region-header-branding .site-logo-wrapper,
+  .region-header-branding .site-name-slogan-wrapper {
+    display: table-cell;
+    vertical-align: middle; }
+    .region-header-branding .site-logo-wrapper.site-name-slogan-wrapper,
+    .region-header-branding .site-name-slogan-wrapper.site-name-slogan-wrapper {
+      padding: 15px 0 0 15px; }
+  .region-header-branding a.site-name h1 {
+    margin: 0;
+    font-size: 2rem; }
+  .region-header-branding a.site-logo {
+    display: block; }
+
 #masthead ul.menu.dropdown ul.menu {
   display: block; }
 

@@ -1,1 +1,6 @@
 // Place any Drupal-related quirks here.
+section[id*='-local-tasks'] {
+  div.button-group li {
+    display: inline-block;
+  }
+}
