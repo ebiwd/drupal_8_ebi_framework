@@ -1,7 +1,7 @@
 global:
   version: VERSION
   css:
-    base:
+    theme:
       css/ebi_framework.css: {}
       css/app.css: {}
   js:
@@ -19,7 +19,7 @@ ebi_framework_cdn:
     //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/foundationExtendEBI.js: { type: external, minified: false }
     //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/script.js: { type: external, minified: false }
   css:
-    theme:
+    layout:
       //ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/ebi-global.min.css: { type: external, minified: true }
       //ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.3/fonts.css: { type: external, minified: false }
   dependencies:
