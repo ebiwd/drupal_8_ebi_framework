@@ -10,8 +10,8 @@ screenshot: images/screenshot.jpg
 # Uncomment these lines and change "ebi_framework" to your theme name if you
 # need to add custom CSS or JS
 libraries:
- - ebi_framework/global
  - ebi_framework/ebi_framework_cdn
+ - ebi_framework/global
 
 libraries-override:
   zurb_foundation/global:
