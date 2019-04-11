@@ -44,3 +44,24 @@ main#main {
     display: block;
   }
 }
+
+.dropdown.menu .is-active>a {
+  color: $white;
+}
+
+.masthead-inner nav i.responsive-menu-expand {
+  font-size: 2rem;
+  float: right;
+  padding: 15px;
+  margin-top: -35px;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .masthead nav ul.menu li {
+    width: 100%;
+  }
+
+  .is-dropdown-submenu {
+    border: none;
+  }
+}

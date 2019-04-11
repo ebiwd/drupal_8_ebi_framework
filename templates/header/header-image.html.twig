@@ -1,4 +1,4 @@
-<div id="masthead" class="background-image-header masthead sticky is-anchored is-at-top" style="background: url('{{ header_background_images[0] }}') no-repeat center; background-size: 100% auto;">
+<div id="masthead" class="background-image-header masthead sticky is-anchored is-at-top" style="background: url('{{ header_background_images[0] }}') no-repeat center; background-size: cover;">
     <div class="masthead-inner">
       <div class="row">
         <!-- local-title -->
@@ -19,10 +19,15 @@
         </div>
         <!-- local-nav -->
         <nav>
-            {% if page.main_menu %}
-                {{ page.main_menu }}
-            {% endif %}
+            <div class="show-for-small-only">
+               <i class="responsive-menu-expand icon icon-functional" data-icon="M"></i>
+            </div>
 
+            <div class="hide-for-small-only menu-wrapper">
+                {% if page.main_menu %}
+                    {{ page.main_menu }}
+                {% endif %}
+            </div>
             {% if show_account_info %}
                 <ul class="dropdown menu float-right" data-description="tasks">
                     {% if logged_in %}
