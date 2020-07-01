@@ -28,6 +28,13 @@
                     {{ page.main_menu }}
                 {% endif %}
             </div>
+
+            {% if page.menu_inline %}
+                <div class="hide-for-small-only menu-wrapper float-right">
+                    {{ page.menu_inline }}
+                </div>
+            {% endif %}
+
             {% if show_account_info %}
                 <ul class="dropdown menu float-right" data-description="tasks">
                     {% if logged_in %}
