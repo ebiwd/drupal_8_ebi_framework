@@ -1,6 +1,6 @@
 name: ebi_framework
 description: "Custom sub-theme, inherits from the Foundation base theme read <a href=\"http://foundation.zurb.com/docs/index.php\">framework documentation</a>"
-core: 8.x
+core_version_requirement: ^8 || ^9
 type: theme
 base theme: zurb_foundation
 
