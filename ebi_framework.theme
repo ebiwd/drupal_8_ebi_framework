@@ -54,7 +54,7 @@ function ebi_framework_preprocess_page(&$variables) {
   $header_background_images = theme_get_setting('header_background_images');
 
   if (!empty($header_background_images)) {
-    $header_background_images_files =	File::loadMultiple($header_background_images); //file_load_multiple($header_background_images);
+    $header_background_images_files =	File::loadMultiple($header_background_images);
     $header_background_images = [];
     foreach ($header_background_images_files as $header_background_images_file) {
       $image_url = ImageStyle::load('header_background_1350x380')->buildUrl($header_background_images_file->getFileUri());
