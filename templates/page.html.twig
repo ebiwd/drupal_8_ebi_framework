@@ -175,9 +175,9 @@
         <div class="row">
             <main id="main" class="{{ main_grid }} columns" role="main">
                 {% if page.highlighted %}
-                    {% spaceless %}
+                    {% apply spaceless %}
                         {{ page.highlighted }}
-                    {% endspaceless %}
+                    {% endapply %}
                 {% endif %}
                 <a id="main-content"></a>
                 {% if breadcrumb %}
