@@ -13,9 +13,12 @@
       //alert("I'm alive!");
       $(document).foundationExtendEBI();
       // Add active class for parent dropdown menu.
-      $('ul.menu.dropdown li.is-dropdown-submenu-parent a.is-active').parents('li.is-dropdown-submenu-parent').find('> a').addClass('is-active');
-      $('.responsive-menu-expand').once().click(function() {
-        $('.menu-wrapper').toggleClass('hide-for-small-only');
+      $('ul.menu.dropdown li.is-dropdown-submenu-parent a.is-active').parents('li.is-dropdown-submenu-parent').find('> a').addClass('is-active'); 
+      once('responsive-menu-expand', '.responsive-menu-expand').forEach((element) => {
+        element.addEventListener('click', function () {
+          $('.menu-wrapper').toggleClass('hide-for-small-only');
+        });
+        
       });
     }
   };
